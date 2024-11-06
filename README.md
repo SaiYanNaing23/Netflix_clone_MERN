@@ -10,5 +10,6 @@
 - => react-router-dom for routing system
 - => react-player for video player
 - => zustand for state management
-- => lucide-react for cute icons 
+- => lucide-react for cute icons
+- Third Party API such as TMDB https://www.themoviedb.org/
 - ![Screenshot from 2024-11-06 10-50-12](https://github.com/user-attachments/assets/26e739b8-cb57-4b89-81dd-54618e220109)
