@@ -27,7 +27,10 @@ const SearchHistory = () => {
         const getSearchHistory = async () => {
             try {
                 const res = await axios.get('/api/v1/search/history')
-                setSearchHistory(res.data.content)
+                let history = res.data.content.filter((obj, index, self) => 
+                    index === self.findIndex((item) => item.id === obj.id)
+                );
+                setSearchHistory(history)
             } catch (error) {
                 console.log(error.message)
                 setSearchHistory([])
@@ -41,7 +44,7 @@ const SearchHistory = () => {
             await axios.delete(`/api/v1/search/history/${entry.id}`)
             const res = await axios.get('/api/v1/search/history')
             setSearchHistory(res.data.content)
-            // setSearchHistory(searchHistory.filter((h)=> h.id!== entry.id))
+            setSearchHistory(searchHistory.filter((h)=> h.id!== entry.id))
         } catch (error) {
             toast.error("Fail to delete search history")
         }

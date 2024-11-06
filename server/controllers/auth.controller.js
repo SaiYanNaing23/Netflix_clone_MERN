@@ -49,7 +49,7 @@ export async function signup (req, res) {
             generateTokenAndSetCookie(newUser._id, res);
             await newUser.save();
             //remove password from response
-            res.status(201).json({success: true, User: {
+            res.status(201).json({success: true, user: {
                 ...newUser._doc,
                 password: '',
             } });
